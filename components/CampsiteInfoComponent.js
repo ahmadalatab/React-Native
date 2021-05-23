@@ -142,17 +142,6 @@ class CampsiteInfo extends Component {
                     onRequestClose={() => this.toggleModal()}
                 >
                     <View style={styles.modal}>
-                        <View>
-                            <Button 
-                                title='Submit'
-                                color='#5637DD'
-                                onPress={() => {
-                                    this.handleComment(campsiteId);
-                                    this.resetForm();
-                                }}
-                            />
-                        </View>
-                        <View style={{margin: 10}}>
                             <Rating
                                 showRating
                                 startingValue={this.state.rating}
@@ -174,15 +163,26 @@ class CampsiteInfo extends Component {
                                 onChangeText={commentText => this.setState({ text: commentText })}
                                 value={this.state.text}
                             />
-                            <Button
-                                onPress={() => {
-                                    this.toggleModal();
-                                    this.resetForm();
-                                }}
-                                color='#808080'
-                                title='Cancel'
-                            />
-                        </View>
+                            <View style={{margin: 10}}>
+                                <Button 
+                                        title='Submit'
+                                        color='#5637DD'
+                                        onPress={() => {
+                                            this.handleComment(campsiteId);
+                                            this.resetForm();
+                                        }}
+                                />
+                            </View>
+                            <View style={{margin: 10}}>
+                                <Button
+                                    onPress={() => {
+                                        this.toggleModal();
+                                        this.resetForm();
+                                    }}
+                                    color='#808080'
+                                    title='Cancel'
+                                />
+                            </View>
                     </View>
                 </Modal>
             </ScrollView>
